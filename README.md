@@ -52,13 +52,11 @@ python scripts/transcribe.py client.m4a transcripts/client fr
 python scripts/compare.py transcripts/client_nova.txt transcripts/client_whisper.txt diff.md
 ```
 
-C'est le cœur du système. Deux modèles se trompent rarement au même endroit : là où ils écrivent
-la même chose le mot est bon, là où ils divergent il faut aller écouter. Sur les 9 vidéos, ça
-donne 207 divergences à regarder, dont 5 qui changeaient vraiment quelque chose.
+Deux modèles se trompent rarement au même endroit. Là où ils écrivent la même chose, le mot est
+bon. Là où ils divergent, le script le signale et on va écouter le passage.
 
-Un exemple : sur la vidéo d'impact.com, un des deux modèles a sauté la phrase qui contient
-« plus de 70 opportunités… plusieurs centaines de milliers d'euros ». Avec un seul transcript,
-le chiffre principal du témoignage disparaissait sans que personne ne s'en rende compte.
+C'est ce qui rattrape les erreurs qu'un transcript seul ne montre pas : un nom déformé, un
+chiffre mal entendu, ou une phrase entière sautée par un modèle.
 
 ### 4. Vérifier chaque citation
 
@@ -67,12 +65,14 @@ python scripts/verify_quotes.py case-studies/client.md \
     transcripts/client_nova.txt transcripts/client_whisper.txt
 ```
 
-C'est l'étape à laquelle je ne m'attendais pas. En écrivant, on corrige machinalement la
-grammaire orale : « j'ai eue » au lieu de « j'ai eu », « à moindres frais » au lieu de « à
-moindre frais ». Rien qui change le sens, donc rien qui se remarque à la relecture, et pourtant
-ce ne sont plus les mots du client.
+Le script compare chaque citation du texte final aux transcripts, mot à mot. Il signale tout mot
+qui n'y figure pas.
 
-Au premier passage, 6 citations sur 16 étaient conformes. Celles du repo sont à 100 %.
+Ça garantit qu'aucune citation n'a été retouchée pendant la rédaction, y compris les corrections
+de grammaire orale qui ne changent pas le sens (« j'ai eue » pour « j'ai eu ») et qui passent
+inaperçues à la relecture.
+
+Sortie en code 1 si une citation échoue, donc branchable en CI.
 
 ## Pour le refaire tourner
 

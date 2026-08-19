@@ -63,8 +63,6 @@ python scripts/compare.py transcripts/client_nova.txt transcripts/client_whisper
 Là où les deux modèles écrivent la même chose, le mot est fiable. Là où ils divergent, il faut
 trancher. La divergence est un détecteur d'erreurs.
 
-Sur le corpus d'origine : 18 min 50 s d'audio, 207 divergences, 5 arbitrages réels.
-
 Ce que ça attrape et ce que ça rate :
 
 - **attrape** : un nom déformé par un seul modèle, une proposition entière sautée par un modèle,
@@ -77,9 +75,8 @@ pointent le même endroit.
 
 ## Étape 5 — Vérifier les identités à l'extérieur
 
-Aucun modèle n'est fiable sur les noms. Sur le corpus d'origine, trois noms étaient faux **dans
-les deux transcrits à la fois** : « Steb » pour Steib, « Giverdier » pour Duverdier, « Romain »
-et « Robin » pour Roman.
+Aucun modèle n'est fiable sur les noms, et c'est le cas typique où les deux se trompent de la
+même façon : la comparaison de l'étape 4 ne détecte alors rien.
 
 Vérifier chaque intervenant sur LinkedIn ou dans la presse. Sans confirmation, citer par la
 fonction seule (« le directeur commercial »). Ne jamais publier un nom non vérifié.
@@ -127,16 +124,12 @@ python scripts/verify_quotes.py case-studies/client.md \
     transcripts/client_nova.txt transcripts/client_whisper.txt
 ```
 
-**C'est l'étape qui rattrape ce que la relecture ne voit pas.** En écrivant, on corrige
-machinalement la grammaire du client. « j'ai eue » pour « j'ai eu ». Aucune ne change le sens,
-donc aucune ne se remarque à la relecture, et le texte n'est plus verbatim.
-
-Sur le corpus d'origine, le premier passage donnait **6 citations conformes sur 16**.
+Le script compare chaque citation aux transcripts, mot à mot, et signale tout mot qui n'y figure
+pas. Il rattrape les corrections de grammaire orale faites machinalement pendant la rédaction
+(« j'ai eue » pour « j'ai eu ») : elles ne changent pas le sens, ne se remarquent pas à la
+relecture, et suffisent à ce que le texte ne soit plus verbatim.
 
 Quand une citation échoue, deux issues seulement : soit on rétablit les mots exacts, soit on
 sort la phrase des guillemets et on la passe en commentaire. Jamais corriger le client.
 
-## Résultat sur le corpus d'origine
-
-9 témoignages, 18 min 50 s, 4 010 mots de verbatim, 9 études de cas, 5 250 mots.
-100 % des citations vérifiées mot à mot.
+Sortie en code 1 si une citation échoue, donc branchable en CI.

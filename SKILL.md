@@ -32,16 +32,9 @@ oEmbed publique de l'hébergeur (`https://vimeo.com/api/oembed.json?url=...`).
 
 Si les vidéos sont sur YouTube, `yt-dlp` suffit.
 
-Si elles sont sur Vimeo et verrouillées au domaine du site, ces routes échouent :
-
-| Voie | Résultat |
-|---|---|
-| `yt-dlp` | 401 sur tous les clients (web, android, ios) |
-| endpoint `/config` du player | 403 en direct, CORS depuis la page |
-| pistes de sous-titres | souvent absentes (`getTextTracks()` renvoie `[]`) |
-
-**Ce qui marche** : laisser le navigateur lire la vidéo, récupérer l'URL signée `playlist.json`
-dans le log réseau, puis réassembler les segments audio.
+Si elles sont sur Vimeo et restreintes au domaine du site, il faut passer par le navigateur :
+laisser la vidéo se lire, récupérer l'URL signée `playlist.json` dans le log réseau, puis
+réassembler les segments audio.
 
 ```bash
 python scripts/grab.py <slug> "<url playlist.json signée>" "https://site-du-client.com/"

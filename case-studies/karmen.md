@@ -96,6 +96,5 @@ Et sur ce que ça produit, Karmen ne se contente pas d'une impression.
 *Propos recueillis en vidéo. Verbatims non réécrits : seules les hésitations et les redites ont
 été retirées.*
 
-*Note : la citation affichée sur le site dit « nous disposons de la meilleure stack Outbound du
-marché ». Dans la vidéo, Hugo Duverdier parle d'une stack « plus conséquente que celle qu'on avait
-avant ». C'est sa formulation qui est reprise ici.*
+*Sur la stack, la formulation retenue est celle de la vidéo : « plus conséquente que celle qu'on
+avait avant ».*

@@ -70,6 +70,5 @@ performance, mais à la qualité du lien au quotidien.
 *Propos recueillis en vidéo. Verbatims non réécrits : seules les hésitations et les redites ont
 été retirées.*
 
-*Note : la citation affichée sur le site dit « à peine 2 mois après le lancement, j'ai vu les
-premiers résultats ». Dans la vidéo, Roman Sebag précise que les résultats arrivent à deux mois et
-que le plein effet vient « trois quatre mois après ». Les deux temps sont conservés ici.*
+*Sur le délai, les deux temps donnés dans la vidéo sont conservés : premiers résultats à deux
+mois, plein effet « trois quatre mois après ».*

@@ -62,6 +62,4 @@ On lui demande souvent avec qui il travaille pour générer ce pipeline. Il a ar
 *Propos recueillis en vidéo. Verbatims non réécrits : seules les hésitations et les redites ont
 été retirées.*
 
-*Note : la citation affichée sur le site, « j'ai réussi le meilleur Country Launch de l'entreprise
-grâce à Scalability », ne se trouve pas dans cette vidéo. Elle vient probablement d'un autre
-échange. Le texte ci-dessus s'en tient à ce qui est dit dans l'enregistrement.*
+*Ce texte s'appuie uniquement sur cette vidéo.*

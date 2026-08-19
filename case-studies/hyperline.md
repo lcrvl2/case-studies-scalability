@@ -72,6 +72,5 @@ L'engagement pris récemment le confirme.
 *Propos recueillis en vidéo. Verbatims non réécrits : seules les hésitations et les redites ont
 été retirées.*
 
-*Note : la citation affichée sur le site dit « je suis tellement satisfait que j'ai resigné pour
-24 mois ». Dans la vidéo, Nicolas Steib dit « on vient de se réengager pour une durée supérieure
-d'un an ». C'est sa formulation qui est reprise ici.*
+*Sur la durée du réengagement, la formulation retenue est celle de la vidéo : « une durée
+supérieure d'un an ».*

@@ -72,7 +72,5 @@ Le responsable grand compte, lui, retient les outils et ce qu'ils permettent de 
 été retirées. Les deux intervenants sont cités par leur fonction, leurs noms n'ayant pas pu être
 vérifiés.*
 
-*Note : la citation affichée sur le site dit « 500 RDV ont été générés depuis notre lancement ».
-Dans la vidéo, il s'agit de « 500 nouvelles entreprises avec qui on a eu des rendez-vous ». La
-seconde formulation est plus forte, c'est elle qui est reprise ici. Le chiffre de 38 000 personnes
-contactées, donné dans la vidéo, ne figure pas sur le site.*
+*Les deux chiffres sont ceux de la vidéo : 500 nouvelles entreprises rencontrées, et environ
+38 000 personnes contactées depuis le début du partenariat.*

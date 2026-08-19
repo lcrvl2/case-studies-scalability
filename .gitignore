@@ -1,0 +1,5 @@
+.env
+*.m4a
+*.json
+!package.json
+__pycache__/

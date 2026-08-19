@@ -56,9 +56,6 @@ python scripts/compare.py transcripts/client_nova.txt transcripts/client_whisper
 Deux modèles se trompent rarement au même endroit. Là où ils écrivent la même chose, le mot est
 bon. Là où ils divergent, le script le signale et je vais réécouter le passage.
 
-Ça sert à attraper ce qu'un transcript seul ne montre pas : un nom déformé, un chiffre mal
-entendu, une phrase entière sautée par un des deux modèles.
-
 ### 4. Vérifier chaque citation
 
 ```bash
@@ -68,10 +65,6 @@ python scripts/verify_quotes.py case-studies/client.md \
 
 Le script reprend chaque citation du texte final et la compare aux transcripts, mot à mot. S'il
 trouve un mot qui n'y est pas, il le signale.
-
-Je fais ça parce qu'en écrivant, on corrige machinalement la grammaire orale des gens. On écrit
-« j'ai eue » au lieu de « j'ai eu », « à moindres frais » au lieu de « à moindre frais ». Ça ne
-change pas le sens, donc ça ne se voit pas à la relecture, mais ce ne sont plus leurs mots.
 
 ## Pour le refaire tourner
 

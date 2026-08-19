@@ -28,7 +28,7 @@ ont vu ce que le canal pouvait produire.
 
 Les deux entreprises se rencontrent il y a deux ans dans le même incubateur. Karmen vient de se
 lancer, veut miser sur l'outbound, et n'a personne pour le faire. Le recours à Scalability est
-pensé dès le départ comme une étape, pas comme une solution durable.
+pensé dès le départ pour couvrir le temps du recrutement.
 
 > « On avait besoin d'une force en outbound, on avait personne en interne. Du coup le projet,
 > c'était de faire appel à Scalability le temps de trouver quelqu'un en interne. Ce qu'on a fait. »

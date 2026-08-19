@@ -131,5 +131,3 @@ relecture, et suffisent à ce que le texte ne soit plus verbatim.
 
 Quand une citation échoue, deux issues seulement : soit on rétablit les mots exacts, soit on
 sort la phrase des guillemets et on la passe en commentaire. Jamais corriger le client.
-
-Sortie en code 1 si une citation échoue, donc branchable en CI.

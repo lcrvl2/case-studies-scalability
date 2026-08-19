@@ -25,17 +25,18 @@ système pour transformer chaque vidéo en étude de cas écrite. J'espère que 
 | [Sopht](case-studies/sopht.md) | 492 mots | Le scoring leur a fait découvrir qui achète vraiment |
 | [impact.com](case-studies/impact.md) | 458 mots | 70 % du volume d'affaires gagné sur le lancement France |
 
-## Comment c'est fait
+## Comment ça marche
 
 ### 1. Récupérer l'audio des vidéos
 
-Les vidéos Vimeo du site sont restreintes au domaine. Pour en sortir l'audio, on laisse le
-navigateur lire la vidéo, on récupère l'URL signée `playlist.json` dans le log réseau, et on
-réassemble les segments. Les URLs signées expirent au bout d'une heure environ.
+Les vidéos Vimeo du site sont restreintes au domaine. Donc je laisse le navigateur lire la vidéo,
+je récupère l'URL signée `playlist.json` dans le log réseau, et je réassemble les segments audio.
 
 ```bash
 python scripts/grab.py client "<url playlist.json>" "https://www.getscalability.io/"
 ```
+
+Les URLs signées expirent au bout d'une heure environ.
 
 ### 2. Transcrire deux fois, avec deux modèles différents
 
@@ -43,8 +44,8 @@ python scripts/grab.py client "<url playlist.json>" "https://www.getscalability.
 python scripts/transcribe.py client.m4a transcripts/client fr
 ```
 
-`nova-2` pour la ponctuation et la séparation des intervenants (utile sur Ubiq, qui en a deux),
-`whisper-large` pour les noms propres, où il est bien meilleur.
+`nova-2` pour la ponctuation et la séparation des intervenants, ce qui sert sur Ubiq où il y en a
+deux. `whisper-large` pour les noms propres, où il est bien meilleur.
 
 ### 3. Croiser les deux transcripts
 
@@ -53,10 +54,10 @@ python scripts/compare.py transcripts/client_nova.txt transcripts/client_whisper
 ```
 
 Deux modèles se trompent rarement au même endroit. Là où ils écrivent la même chose, le mot est
-bon. Là où ils divergent, le script le signale et on va écouter le passage.
+bon. Là où ils divergent, le script le signale et je vais réécouter le passage.
 
-C'est ce qui rattrape les erreurs qu'un transcript seul ne montre pas : un nom déformé, un
-chiffre mal entendu, ou une phrase entière sautée par un modèle.
+Ça sert à attraper ce qu'un transcript seul ne montre pas : un nom déformé, un chiffre mal
+entendu, une phrase entière sautée par un des deux modèles.
 
 ### 4. Vérifier chaque citation
 
@@ -65,14 +66,12 @@ python scripts/verify_quotes.py case-studies/client.md \
     transcripts/client_nova.txt transcripts/client_whisper.txt
 ```
 
-Le script compare chaque citation du texte final aux transcripts, mot à mot. Il signale tout mot
-qui n'y figure pas.
+Le script reprend chaque citation du texte final et la compare aux transcripts, mot à mot. S'il
+trouve un mot qui n'y est pas, il le signale.
 
-Ça garantit qu'aucune citation n'a été retouchée pendant la rédaction, y compris les corrections
-de grammaire orale qui ne changent pas le sens (« j'ai eue » pour « j'ai eu ») et qui passent
-inaperçues à la relecture.
-
-Sortie en code 1 si une citation échoue, donc branchable en CI.
+Je fais ça parce qu'en écrivant, on corrige machinalement la grammaire orale des gens. On écrit
+« j'ai eue » au lieu de « j'ai eu », « à moindres frais » au lieu de « à moindre frais ». Ça ne
+change pas le sens, donc ça ne se voit pas à la relecture, mais ce ne sont plus leurs mots.
 
 ## Pour le refaire tourner
 
